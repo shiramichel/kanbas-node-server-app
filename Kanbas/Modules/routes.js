@@ -1,6 +1,8 @@
-import db from "../Database/index.js";
+import * as dao from "./dao.js"; 
+// import db from "../Database/index.js";
 export default function ModuleRoutes(app) {
-    app.delete("/api/modules/:mid", (req, res) => {
+    /*
+  app.delete("/api/modules/:mid", (req, res) => {
         const { mid } = req.params;
         db.modules = db.modules.filter((m) => m._id !== mid);
         res.sendStatus(200);
@@ -32,6 +34,37 @@ export default function ModuleRoutes(app) {
     };
     res.sendStatus(204);
   });
-
+*/
+const updateModule = async (req, res) => {
+  const { id } = req.params;
+  const module = req.body;
+  const status = await dao.updateModule(id, module); 
+  res.json(status); 
 }
 
+const createModule = async (req, res) => {
+  const { id } = req.params;
+  const module = { ...req.body, 
+    course: id,
+    _id: new Date().getTime().toString() };
+  console.log("adding module"); 
+  const status = await dao.createModule(module); 
+  res.json(status); 
+}
+
+const getModules = async (req, res) => {
+  const modules = await dao.findAllModules(); 
+  res.json(modules);
+}
+
+const deleteModule = async (req, res) => {
+  const { id } = req.params;
+  const result = await dao.deleteModule(id); 
+  res.json(result); 
+}
+
+app.put("/api/modules/:id", updateModule); 
+app.post("/api/courses/:id/modules", createModule);
+app.get("/api/courses/:id/modules", getModules);
+app.delete("/api/modules/:id", deleteModule);
+}
