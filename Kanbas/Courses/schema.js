@@ -9,7 +9,7 @@ const courseSchema = new mongoose.Schema({
     description: String,
     image: { 
         type: String,
-        default: "https://www.popwebdesign.net/popart_blog/wp-content/uploads/2018/03/reactjs.jpg"
+        default: "images/reactjs.jpg"
     }
   },
   { collection: "courses" }
