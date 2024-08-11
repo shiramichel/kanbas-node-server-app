@@ -7,7 +7,7 @@ const courseSchema = new mongoose.Schema({
     //department: String, 
     //credits: Number, 
     description: String,
-    image: { 
+    _img: { 
         type: String,
         default: "images/reactjs.jpg"
     }
