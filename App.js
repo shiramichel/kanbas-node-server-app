@@ -9,7 +9,6 @@ import CourseRoutes from "./Kanbas/Courses/routes.js";
 import AssignmentRoutes from './Kanbas/Assignments/routes.js';
 import cors from "cors";
 import session from "express-session";
-import "dotenv/config";
 
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas"
 mongoose.connect(CONNECTION_STRING);
