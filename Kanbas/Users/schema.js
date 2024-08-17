@@ -15,8 +15,11 @@ const userSchema = new mongoose.Schema({
     section: String,
     lastActivity: Date,
     totalActivity: String,
+    courses: {
+      type: Array,
+      default: []
+    }
   },
   { collection: "users" }
 );
 export default userSchema;
-
