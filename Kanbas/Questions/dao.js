@@ -20,6 +20,6 @@ export const updateQuestion = (questionId, question) => {
     return option
   })
   model.updateOne({ _id: questionId }, { $set: question });
-}
+};
 
 export const deleteQuestion = (questionId) => model.deleteOne({ _id: questionId });
