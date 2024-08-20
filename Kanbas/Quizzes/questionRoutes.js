@@ -5,8 +5,17 @@ export default function QuestionRoutes(app) {
     const question = await dao.createQuestion(req.body);
     res.json(question);
   };
+<<<<<<< HEAD
   app.post("/api/quizzes/:quiz/questions", createQuestion);
 
+=======
+<<<<<<< HEAD
+  app.post("/api/quizzes/:qid/questions", createQuestion);
+
+=======
+  app.post("/api/quizzes/:quiz/questions", createQuestion);
+
+>>>>>>> 73cfe69 (fixed score records)
   // Nile: 
   /* I removed I was seeing issue when doing api requests
   const createQuestions = async (req, res) => {
@@ -16,14 +25,27 @@ export default function QuestionRoutes(app) {
   app.post("/api/quizQuestions/", createQuestions);
   */
 /*
+<<<<<<< HEAD
+=======
+>>>>>>> 6d8fd01 (fixed score records)
+>>>>>>> 73cfe69 (fixed score records)
   const deleteQuestion = async (req, res) => {
     const status = await dao.deleteQuestion(req.params.questionId);
     res.json(status);
   };
   app.delete("/api/questions/:questionId", deleteQuestion);
+<<<<<<< HEAD
   // Nile:
   app.delete("/api/quizQuestions/:questionid", deleteQuestion);
   */
+=======
+<<<<<<< HEAD
+=======
+  // Nile:
+  app.delete("/api/quizQuestions/:questionid", deleteQuestion);
+  */
+>>>>>>> 6d8fd01 (fixed score records)
+>>>>>>> 73cfe69 (fixed score records)
 
   const findAllQuestions = async (req, res) => {
     const questions = await dao.findAllQuestions();
@@ -51,4 +73,45 @@ export default function QuestionRoutes(app) {
     res.json(status);
   };
   app.put("/api/questions/:questionId", updateQuestion);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+  app.put("/api/assignments/:aid", (req, res) => {
+    const { aid } = req.params;
+    const assignmentIndex = db.assignments.findIndex(
+      (a) => a._id === aid);
+    db.assignments[assignmentIndex] = {
+      ...db.assignments[assignmentIndex],
+      ...req.body
+    };
+    res.sendStatus(204);
+  });
+
+  app.delete("/api/assignments/:aid", (req, res) => {
+    const { aid } = req.params;
+    db.assignments = db.assignments.filter((a) => a._id !== aid);
+    res.sendStatus(200);
+  });
+
+  app.post("/api/courses/:cid/assignments", (req, res) => {
+    const { cid } = req.params;
+    const newAssignment = {
+      ...req.body,
+      course: cid,
+      _id: new Date().getTime().toString(),
+    };
+    db.assignments.push(newAssignment);
+    res.send(newAssignment);
+  });
+
+  app.get("/api/courses/:cid/assignments", (req, res) => {
+    const { cid } = req.params;
+    const assignments = db.assignments.filter((a) => a.course === cid);
+    res.json(assignments);
+  });
+=======
+>>>>>>> 6d8fd01 (fixed score records)
+>>>>>>> 73cfe69 (fixed score records)
 }

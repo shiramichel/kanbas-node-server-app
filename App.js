@@ -7,6 +7,12 @@ import UserRoutes from "./Kanbas/Users/routes.js";
 import CourseRoutes from "./Kanbas/Courses/routes.js";
 import ModuleRoutes from './Kanbas/Modules/routes.js';
 import AssignmentRoutes from './Kanbas/Assignments/routes.js';
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import QuestionRoutes from './Kanbas/Questions/routes.js';
+=======
+>>>>>>> 73cfe69 (fixed score records)
 import QuestionRoutes from './Kanbas/Quizzes/questionRoutes.js';
 import QuizzesRoutes from './Kanbas/Quizzes/quizRoutes.js';
 import scoreRoutes from './Kanbas/Quizzes/ScoreRoute.js';
@@ -14,6 +20,10 @@ import scoreRoutes from './Kanbas/Quizzes/ScoreRoute.js';
 import quizQuestionsRoutes from "./Kanbas/QuizQuestions/routes.js";
 import QuizDetailsRoutes from "./Kanbas/QuizDetails/routes.js";
 
+<<<<<<< HEAD
+=======
+>>>>>>> 6d8fd01 (fixed score records)
+>>>>>>> 73cfe69 (fixed score records)
 import cors from "cors";
 import session from "express-session";
 
@@ -50,10 +60,19 @@ CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
 QuestionRoutes(app);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 73cfe69 (fixed score records)
 QuizzesRoutes(app);
 scoreRoutes(app);
 
 quizQuestionsRoutes(app);
 QuizDetailsRoutes(app);
+<<<<<<< HEAD
+=======
+>>>>>>> 6d8fd01 (fixed score records)
+>>>>>>> 73cfe69 (fixed score records)
 
 app.listen(process.env.PORT || 4000)
