@@ -8,12 +8,14 @@ export default function QuestionRoutes(app) {
   app.post("/api/quizzes/:qid/questions", createQuestion);
 
   // Nile: 
+  /* I removed I was seeing issue when doing api requests
   const createQuestions = async (req, res) => {
     const question = await dao.createQuestion(req.body);
     res.json(question);
   };
   app.post("/api/quizQuestions/", createQuestions);
-
+  */
+/*
   const deleteQuestion = async (req, res) => {
     const status = await dao.deleteQuestion(req.params.questionId);
     res.json(status);
@@ -21,6 +23,7 @@ export default function QuestionRoutes(app) {
   app.delete("/api/questions/:questionId", deleteQuestion);
   // Nile:
   app.delete("/api/quizQuestions/:questionid", deleteQuestion);
+  */
 
   const findAllQuestions = async (req, res) => {
     const questions = await dao.findAllQuestions();

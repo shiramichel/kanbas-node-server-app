@@ -10,6 +10,10 @@ import AssignmentRoutes from './Kanbas/Assignments/routes.js';
 import QuestionRoutes from './Kanbas/Quizzes/questionRoutes.js';
 import QuizzesRoutes from './Kanbas/Quizzes/quizRoutes.js';
 import scoreRoutes from './Kanbas/Quizzes/ScoreRoute.js';
+
+import quizQuestionsRoutes from "./Kanbas/QuizQuestions/routes.js";
+import QuizDetailsRoutes from "./Kanbas/QuizDetails/routes.js";
+
 import cors from "cors";
 import session from "express-session";
 
@@ -48,5 +52,8 @@ AssignmentRoutes(app);
 QuestionRoutes(app);
 QuizzesRoutes(app);
 scoreRoutes(app);
+
+quizQuestionsRoutes(app);
+QuizDetailsRoutes(app);
 
 app.listen(process.env.PORT || 4000)
