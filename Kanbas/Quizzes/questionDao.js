@@ -6,7 +6,7 @@ export const createQuestion = (question) => {
     delete option._id
     return option
   })
-  return model.create(question);
+  return QuestionModel.create(question);
 }
 
 export const findAllQuestions = () => QuestionModel.find();
@@ -19,8 +19,7 @@ export const updateQuestion = (questionId, question) => {
     delete option._id
     return option
   });
-  
-  return model.updateOne({ _id: questionId }, { $set: question });
+  return QuestionModel.updateOne({ _id: questionId }, { $set: question });
 };
 
 export const deleteQuestion = (questionId) => QuestionModel.deleteOne({ _id: questionId });
