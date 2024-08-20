@@ -5,7 +5,7 @@ export default function QuestionRoutes(app) {
     const question = await dao.createQuestion(req.body);
     res.json(question);
   };
-  app.post("/api/quizzes/:qid/questions", createQuestion);
+  app.post("/api/quizzes/:quiz/questions", createQuestion);
 
   // Nile: 
   /* I removed I was seeing issue when doing api requests
