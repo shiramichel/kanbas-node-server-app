@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 const questionsSchema = new mongoose.Schema({
   quiz: { type: String, required: true },
   course: { type: String, required: true },
+  tempID: { type: String },
   title: { type: String, default: "Untitled Question" },
   question: { type: String },
   type: { type: String, default: "MC" },
