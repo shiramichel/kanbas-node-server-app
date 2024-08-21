@@ -64,9 +64,26 @@ export default function QuizRoutes(app) {
     }
   };
 
+  // update questions in a quiz (link ids)
+  const updateQuizQuestions = async (req, res) => {
+    try {
+      const updatedQuiz = await dao.updateQuizQuestions(req.params.quizId, req.params.questionId);
+      if (!updatedQuiz) {
+        res.status(404).json({ message: "Quiz not found" });
+      } else {
+        res.json(updatedQuiz);
+      }
+    } catch (error) {
+      console.error("Error updating quiz questions:", error);
+      res.status(500).json({ message: "Error updating quiz questions" });
+    }
+  };
+  app.put("/api/quizzes/:quizId/questions", updateQuizQuestions);
+
   app.get("/api/courses/:courseId/quizzes", findAllQuizzes);
   app.get("/api/courses/:courseId/quizzes/:quizId", findQuizById);
   app.post("/api/courses/:courseId/quizzes", createQuiz);
   app.put("/api/courses/:courseId/quizzes/:quizId", updateQuiz);
   app.delete("/api/courses/:courseId/quizzes/:quizId", deleteQuiz);
+  
 }

@@ -21,3 +21,7 @@ export const updateQuiz = async (quizId, quiz) => {
 export const deleteQuiz = async (quizId) => {
     return await QuizModel.findByIdAndDelete(quizId);
 };
+
+export const updateQuizQuestions = async (quizId, questionId) => {
+    return await QuizModel.findByIdAndUpdate(quizId, { $push: { questions: questionId } }, { new: true });
+};
