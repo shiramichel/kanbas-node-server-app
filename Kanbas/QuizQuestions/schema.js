@@ -4,7 +4,7 @@ const quizQuestionSchema = new mongoose.Schema ({
     // quiz:String,
     quiz: { type: String, required: true },
     // course:String,
-    course: { type: String, required: true },
+    course: { type: String},
     tempID: { type: String },
     // name:String,
     title: { type: String, default: "Untitled Question" },
