@@ -15,15 +15,15 @@ export default function QuestionRoutes(app) {
   };
   app.post("/api/quizQuestions/", createQuestions);
   */
-/*
-  const deleteQuestion = async (req, res) => {
-    const status = await dao.deleteQuestion(req.params.questionId);
-    res.json(status);
-  };
-  app.delete("/api/questions/:questionId", deleteQuestion);
-  // Nile:
-  app.delete("/api/quizQuestions/:questionid", deleteQuestion);
-  */
+  /*
+    const deleteQuestion = async (req, res) => {
+      const status = await dao.deleteQuestion(req.params.questionId);
+      res.json(status);
+    };
+    app.delete("/api/questions/:questionId", deleteQuestion);
+    // Nile:
+    app.delete("/api/quizQuestions/:questionid", deleteQuestion);
+    */
 
   const findAllQuestions = async (req, res) => {
     const questions = await dao.findAllQuestions();
@@ -45,8 +45,17 @@ export default function QuestionRoutes(app) {
 
   const updateQuestion = async (req, res) => {
     const { questionId } = req.params;
-    const status = await dao.updateQuestion(questionId, req.body);
-    res.json(status);
+    try {
+      const status = await dao.updateQuestion(questionId, req.body);
+      if (!status) {
+        return res.status(404).json({ message: "Question not found" });
+      }
+      res.json(status);
+    } catch (error) {
+      console.error("Error updating question:", error);
+      res.status(500).json({ message: "Error updating question" });
+    }
   };
+
   app.put("/api/questions/:questionId", updateQuestion);
 }

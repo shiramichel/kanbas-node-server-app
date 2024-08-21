@@ -16,13 +16,13 @@ export const findQuestionByQuiz = (quizId) => QuestionModel.find({quiz: quizId})
 export const findQuestionByCourse = (courseId) => QuestionModel.find({course: courseId});
 
 
-export const updateQuestion = (questionId, question) => {
+export const updateQuestion = async (questionId, question) => {
   question.options = question.options.map(option => {
-    delete option._id
-    return option
+    delete option._id;
+    return option;
   });
-  QuestionModel.updateOne({ _id: questionId }, { $set: question });
+  const result = await QuestionModel.findByIdAndUpdate(questionId, { $set: question }, { new: true });
+  return result;
 };
-
 
 export const deleteQuestion = (questionId) => QuestionModel.deleteOne({ _id: questionId });
