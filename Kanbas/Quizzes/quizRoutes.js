@@ -67,7 +67,7 @@ export default function QuizRoutes(app) {
   // update questions in a quiz (link ids)
   const updateQuizQuestions = async (req, res) => {
     try {
-      const updatedQuiz = await dao.updateQuizQuestions(req.params.quizId, req.params.questionId);
+      const updatedQuiz = await dao.updateQuizQuestions(req.params.quizId, req.body);
       if (!updatedQuiz) {
         res.status(404).json({ message: "Quiz not found" });
       } else {
